@@ -1,0 +1,33 @@
+!!!5
+
+%html{'xmlns:fb' => "http://ogp.me/ns/fb#"}
+  = render :partial => 'shared/head'
+
+  %body
+    - if @topbar
+      .topbar{'data-scrollspy' => 'scrollspy'}
+        .topbar-inner
+          .container
+            %a{:href => '/', :class => 'brand'}
+              githero.es
+
+            %ul{:class => 'nav secondary-nav'}
+              - if @show_sign_in_button_in_header
+                .social-buttons
+                  %a{ :href => user_omniauth_authorize_path(:github), :class => "button signup facebook popup", :'data-width' => '600', :'data-height' => '400' }
+                    ="<span>Sign In with GitHub</span>".html_safe
+
+    #main.container
+      - if notice.present?
+        %p{:class => "alert-message success notice"}= notice
+      - if alert.present?
+        %p{:class => "alert-message error alert"}= alert
+
+      = yield
+
+    #footer.container
+      Brought to you by the creators of <a href="http://getdenso.com">Denso</a> &middot; Follow us on Twitter at <a href="http://twitter.com/githeroes">@githeroes</a> or <a href="http://twitter.com/getdenso">@getdenso</a>
+
+    #fb-root
+
+    = render :partial => 'shared/javascripts'

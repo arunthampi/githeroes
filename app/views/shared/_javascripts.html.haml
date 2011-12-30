@@ -1,0 +1,11 @@
+= javascript_include_tag 'application'
+
+-# Optimized Google Analytics - http://t.co/HZe9oJ4
+- if Rails.env.production?
+  :javascript
+    var _gaq=[['_setAccount','UA-27471559-1'],['_setDomainName', '.muxx.it'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+
+= yield :javascripts

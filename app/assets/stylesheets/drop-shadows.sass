@@ -1,0 +1,12 @@
+=box-shadow($inset: false, $horizontal: 1px, $vertical: 0px, $blur: 2px, $spread: 1px, $r: 0, $g: 0, $b: 0, $opacity: .7)
+  @if $inset
+    -webkit-box-shadow: inset $horizontal $vertical $blur $spread rgba($r, $g, $b, $opacity)
+    -moz-box-shadow: inset $horizontal $vertical $blur $spread rgba($r, $g, $b, $opacity)
+    box-shadow: inset $horizontal $vertical $blur $spread rgba($r, $g, $b, $opacity)
+  @else
+    -webkit-box-shadow: $horizontal $vertical $blur $spread rgba($r, $g, $b, $opacity)
+    -moz-box-shadow: $horizontal $vertical $blur $spread rgba($r, $g, $b, $opacity)
+    box-shadow: $horizontal $vertical $blur $spread rgba($r, $g, $b, $opacity)
+
+=soft-shadow
+  +box-shadow(false, 1px, 1px, 1px, 1px, 175,175,175,0.1)

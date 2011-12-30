@@ -1,0 +1,79 @@
+@import 'bootstrap'
+@import 'gradients'
+@import 'drop-shadows'
+@import 'globals'
+@import 'colors'
+
+form#new_muxx_reel
+  fieldset
+    padding-top: 0
+
+    input[type='text']
+      width: 350px
+      &.large
+        padding: 9px 5px 9px
+        font-size: 15px
+        width: 400px
+
+    input[type='submit'].large
+      width: 120px
+
+    label
+      width: auto
+    ol
+      margin-left: 0
+      list-style: none
+    li
+      display: inline
+
+.topbar
+  ul.secondary-nav
+    a
+      margin-right: 85px
+
+      img
+        vertical-align: middle
+      span
+        margin-left: 5px
+        display: inline
+    .social-buttons
+      width: 300px
+      a
+        margin-top: 5px
+        padding: 5px 15px 5px 15px
+
+.social-buttons
+  width: 200px
+  .ortext
+    margin: 0 0 1em
+    color: #554
+    text-align: center
+    text-shadow: 0 1px 1px #fff
+  a
+    +border-radius(2px)
+    display: block
+    padding: 0
+    font-size: 1em
+    padding: .5em 1em
+    background-image: none
+    background: none
+    +box-shadow(false, 1px, 1px, 3px, 0, 0,0,0,0.3)
+    color: #fff
+    text-decoration: none
+    span
+      background-image: url('/assets/icons/16/twit-inv.png')
+      background-repeat: no-repeat
+      background-position: 0 2px
+      padding-left: 28px
+    &.twitter
+      +soft-gradient($twitter-blue, $twitter-blue - #181818)
+      text-shadow: 0 -1px 0 $twitter-blue - #111
+      &:hover
+        +soft-gradient($twitter-blue - #181818, $twitter-blue - #282828)
+    &.facebook
+      +soft-gradient($facebook-blue + #111, $facebook-blue - #111)
+      text-shadow: 0 -1px 0 $facebook-blue - #111
+      &:hover
+        +soft-gradient($facebook-blue - #111, $facebook-blue - #222)
+      span
+        background-image: url('/assets/icons/16/facebiblio-inv.png')

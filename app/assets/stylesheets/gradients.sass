@@ -1,0 +1,29 @@
+=soft-gradient($start-color: $colors-4, $end-color: $colors-5)
+  font-weight: bold
+  background-color: $end-color
+  background-image: -moz-linear-gradient(top,$start-color,$end-color)
+  background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0,$start-color),color-stop(1,$end-color))
+  background-image: -webkit-linear-gradient($start-color,$end-color)
+  background-image: linear-gradient(top,$start-color,$end-color)
+  text-shadow: 0 -1px 1px RGBa(0,0,0,0.2)
+
+=softer-gradient($start-color: #414141, $end-color: #1A1A1A)
+  font-weight: bold
+  background-color: $start-color
+  background-image: -moz-linear-gradient(top,$start-color,$end-color)
+  background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0,$start-color),color-stop(1,$end-color))
+  background-image: -webkit-linear-gradient($start-color,$end-color)
+  background-image: linear-gradient(top,$start-color,$end-color)
+  text-shadow: 0 -1px 1px RGBa(0,0,0,0.2)
+
+=loud-gradient($start-color: #F8001A, $end-color: #C80015)
+  color: #fff
+  font-weight: bold
+  background-color: $start-color
+  background-image: -moz-linear-gradient(top,$start-color,$end-color)
+  background-image: -o-linear-gradient(top,$start-color,$end-color)
+  background-image: -webkit-gradient(linear,left top,left bottom,from($start-color),to($end-color))
+  background-image: -webkit-linear-gradient(top,$start-color,$end-color)
+  background-image: linear-gradient(top,$start-color,$end-color)
+  cursor: pointer
+  text-shadow: 0 -1px 1px RGBa(0,0,0,0.3)
