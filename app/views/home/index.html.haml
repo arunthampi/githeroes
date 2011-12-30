@@ -2,6 +2,13 @@
   .row#main-row
     .span16#header
       .header
-        %h2 githero.es
+        = image_tag 'githeroes-600x170.png'
         .blurb
           Vote for your hero on Github!
+      .heroes
+
+
+      .nominate
+        %a{:class => 'btn success large', :id => 'preview-muxx-reel', :href => '#'}
+          Nominate your Own Hero!
+
