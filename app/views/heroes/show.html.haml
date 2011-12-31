@@ -1,0 +1,8 @@
+%section#heroes-show
+  .row
+    .span16
+
+
+- content_for :javascripts do
+  %script{:type => "text/javascript"}
+    = "window.heroes_controller = new HeroesController('#{params[:id]}', #{@hero.present?});"
