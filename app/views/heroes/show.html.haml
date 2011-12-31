@@ -1,6 +1,11 @@
 %section#heroes-show
   .row
     .span16
+      .header
+        = image_tag 'githeroes-600x170.png', :width => '200px'
+      .hero
+        - if @hero.present?
+          = render :partial => 'hero', :locals => { :hero => @hero }
 
 
 - content_for :javascripts do

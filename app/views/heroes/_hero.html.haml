@@ -1,0 +1,17 @@
+.row
+  .span4
+    = image_tag(hero.avatar_url)
+  .span12
+    %h1= "#{hero.login} <em>(#{hero.name})</em>".html_safe
+
+.row.hero-actions
+  .span8.ranks
+    .language-rank
+      %p.rank= "#1024"
+      %p.descriptor= "Ruby"
+    .global-rank
+      %p.rank= "#10242401"
+      %p.descriptor= "Global"
+  .span8.vote
+    %a{:class => 'btn success large primary', :id => 'vote', :href => '#'}
+      Vote Now!

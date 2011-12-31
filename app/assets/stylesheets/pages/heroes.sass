@@ -1,0 +1,62 @@
+// Place all the styles related to the Heroes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#heroes-show
+  padding-top: 20px
+
+  .header
+    width: 600px
+    margin: 0 auto
+    margin-bottom: 30px
+    border-bottom: 1px solid #DDD
+
+  .hero
+    width: 600px
+    margin: 0 auto
+
+    .row
+      &.hero-actions
+        height: 225px
+
+      .span8
+        width: 49%
+        height: 160px
+        margin-left: 0
+        text-align: center
+
+        &.vote
+          margin-top: 10%
+
+          a
+            padding: 9px 60px 9px
+
+        &.ranks
+          border-right: 1px solid #DDD
+          padding-top: 20px
+
+          .rank
+            font-size: 36px
+            font-weight: bold
+          .descriptor
+            color: #999
+            font-size: 18px
+            padding-top: 8px
+          div
+            &.language-rank
+              padding-bottom: 40px
+            text-align: center
+
+      .span4
+        width: 15%
+        img
+          border: 1px solid #DDD
+          padding: 2px
+      .span12
+        width: 65%
+        h1
+          margin-bottom: 10px
+          em
+            color: #99A7AF
+            font-style: normal
+            font-weight: normal

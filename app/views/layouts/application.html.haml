@@ -3,7 +3,7 @@
 %html{'xmlns:fb' => "http://ogp.me/ns/fb#"}
   = render :partial => 'shared/head'
 
-  %body
+  %body{:id => @body_id || 'githero'}
     - if @topbar
       .topbar{'data-scrollspy' => 'scrollspy'}
         .topbar-inner
