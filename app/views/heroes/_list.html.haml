@@ -1,0 +1,3 @@
+- heroes.each do |hero|
+  %a{:href => short_hero_path(hero)}
+    = image_tag(hero.avatar_url, :alt => hero.login, :class => 'hero-shot')

@@ -6,7 +6,7 @@
         .blurb
           Vote for your hero on Github!
       .heroes
-
+        = render :partial => 'heroes/list', :locals => { :heroes => @heroes }
 
       .nominate
         %a{:class => 'btn success large', :id => 'preview-muxx-reel', :href => '#'}
