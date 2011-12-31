@@ -10,13 +10,20 @@ window.HeroesController = class HeroesController
     $.ajax({
       type: 'GET',
       url: "https://api.github.com/users/#{@heroName}",
-      dataType: 'json',
-      success: (response, textStatus, XMLHttpRequest) =>
-        if response.message != "Not Found"
-          $.ajax({
-            type: 'POST',
-            url: '/heroes',
-            format: 'script',
-            data: { 'hero' : response }
-          })
+      dataType: 'jsonp',
+      jsonpCallback: 'window.heroes_controller.saveHero'
     })
+
+  saveHero: (response) ->
+    console.log("Save Hero called")
+
+    data = response.data
+
+    if data.message != "Not Found"
+      $.ajax({
+        type: 'POST',
+        url: '/heroes',
+        format: 'script',
+        data: { 'hero' : data }
+      })
+
