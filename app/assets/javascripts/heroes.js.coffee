@@ -15,8 +15,6 @@ window.HeroesController = class HeroesController
     })
 
   saveHero: (response) ->
-    console.log("Save Hero called")
-
     data = response.data
 
     if data.message != "Not Found"

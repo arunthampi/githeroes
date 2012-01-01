@@ -15,4 +15,5 @@ Factory.define(:hero) do |h|
   h.sequence(:following)        { |n| n }
   h.sequence(:html_url)         { |n| "https://github.com/login-#{n}" }
   h.sequence(:joined_github_at) { |n| Time.now - (n * 24 * 60 * 60 * 100) }
+  h.password                    "password"
 end

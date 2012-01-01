@@ -9,4 +9,9 @@ describe Hero do
     it { should validate_presence_of    :email }
     it { should validate_presence_of    :login }
   end
+
+  describe "Associations" do
+    it { should have_many :access_tokens }
+  end
+
 end

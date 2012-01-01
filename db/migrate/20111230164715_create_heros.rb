@@ -1,6 +1,11 @@
 class CreateHeros < ActiveRecord::Migration
   def change
     create_table :heros do |t|
+      t.database_authenticatable :null => false
+      t.recoverable
+      t.rememberable
+      t.trackable
+
       t.string    :login
       t.text      :avatar_url
       t.string    :gravatar_id

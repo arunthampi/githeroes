@@ -45,12 +45,4 @@ RSpec.configure do |config|
   config.before(:each, :type => :controller) do
     self.class.render_views
   end
-
-  config.before(:all) do
-    # Event.any_instance.stub(:save_attached_files).and_return(true)
-    # Event.any_instance.stub(:delete_attached_files).and_return(true)
-    # Tag.any_instance.stub(:save_attached_files).and_return(true)
-    # Tag.any_instance.stub(:delete_attached_files).and_return(true)
-    # Paperclip::Attachment.any_instance.stub(:post_process).and_return(true)
-  end
 end

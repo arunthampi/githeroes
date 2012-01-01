@@ -4,7 +4,7 @@ Devise.setup do |config|
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class with default "from" parameter.
-  config.mailer_sender = "hello@githero.es"
+  config.mailer_sender = "hello@getdenso.com"
 
   # Configure the class responsible to send e-mails.
   # config.mailer = "Devise::Mailer"
@@ -69,7 +69,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
-  # config.pepper = "92855f2f79d60076dbfb713ad203922fd7c0063a29eebcdc7138ba25539c0cc1a67c92ea87379a19df41f1ada8d6d3086f9298bf8cd9ecedd39ffef37f899859"
+  # config.pepper = "04bc9c2fa3888c278ac5a39b8ed159e3fc543ccb2039a4e94528c2fcb9eaeaee17871bf41931f4ab0fe4f51a0e76d37e95e5308d50e22f38253af203326d7eba"
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
@@ -196,9 +196,8 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
   config.omniauth :github, Settings.github_config['client_id'], Settings.github_config['secret'],
-                  :scope => 'user,public_repo'
+                           :scope => 'user,public_repo'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
