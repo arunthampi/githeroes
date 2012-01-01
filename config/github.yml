@@ -1,0 +1,12 @@
+development:
+  client_id: ac4bdfd956f7a6c13483
+  secret: a0d6da4e22742d17546c839a5a962f9a4b7eb681
+test:
+  client_id: test_client_id
+  secret: test_secret
+staging:
+  client_id: 662adc15e0f54c21e048
+  secret: 3d4f1fb2b600ebf4dae3e8ef21f3d6594af2aeaa
+production:
+  client_id: 662adc15e0f54c21e048
+  secret: 3d4f1fb2b600ebf4dae3e8ef21f3d6594af2aeaa
