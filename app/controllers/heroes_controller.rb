@@ -1,5 +1,6 @@
 class HeroesController < ApplicationController
   def show
+    @hide_footer = true
     @hero = Hero.find_by_login(params[:id])
   end
 

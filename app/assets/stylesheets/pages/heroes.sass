@@ -3,48 +3,60 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #heroes-show
-  padding-top: 20px
+  padding-top: 100px
 
-  .header
-    width: 80%
+  .hero-container
+    border: 3px solid #666
+    border-radius: 6px
+    width: 50%
     margin: 0 auto
-    margin-bottom: 30px
-    border-bottom: 1px solid #DDD
+    padding: 50px
+    -webkit-box-shadow: 0 0 15px #9c9c9c
+    -moz-box-shadow: 0 0 15px #9c9c9c
+    box-shadow: 0 0 15px #9c9c9c
+    -webkit-transition: background-color .3s
+    -moz-transition: background-color .3s
+    transition: background-color .3s
 
-  .hero
-    width: 80%
-    margin: 0 auto
+    .header
+      margin-bottom: 30px
+      border-bottom: 1px solid #DDD
 
-    .row
-      .vote
-        width: 80%
-        margin-top: 20px
-        text-align: center
-        a
-          padding: 9px 60px 9px
+    .hero
+      .row
+        .bio
+          width: 100%
+          padding-top: 20px
+
+        .vote
+          width: 100%
+          margin-top: 20px
+          text-align: center
+          a
+            padding: 9px 60px 9px
 
 
-      .span4
-        width: 10%
+        .span4
+          width: 16%
 
-      .span12
-        width: 80%
+        .span12
+          width: 64%
 
-        .rank-block
-          float: left
-          padding-right: 20px
+          .rank-block
+            float: left
+            padding-right: 20px
 
-          .rank
-            font-weight: bold
-            font-size: 18px
-          .descriptor
-            color: #999
-            font-size: 18px
-            padding-right: 5px
+            .rank
+              font-weight: bold
+              font-size: 18px
+            .descriptor
+              color: #999
+              font-size: 18px
+              padding-right: 5px
 
-        h1
-          margin-bottom: 10px
-          em
-            color: #99A7AF
-            font-style: normal
-            font-weight: normal
+          h1
+            margin-bottom: 10px
+            em
+              color: #99A7AF
+              font-style: normal
+              font-weight: normal

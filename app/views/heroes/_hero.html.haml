@@ -1,14 +1,21 @@
 .row
   .span4
-    = image_tag(hero.avatar_url, :alt => hero.login, :class => 'hero-shot')
+    %a{:href => hero.html_url, :title => hero.name}
+      = image_tag(hero.avatar_url, :alt => hero.login, :class => 'hero-shot')
   .span12
-    %h1= "#{hero.login} <em>(#{hero.name})</em>".html_safe
+    %h1= hero.login
     .language.rank-block
       %span.descriptor= "Ruby"
       %span.rank= "#1024"
     .global.rank-block
       %span.descriptor= "Global"
       %span.rank= "#10242401"
+
+.row
+  .span16.bio
+    - if hero.bio.present? && hero.bio.to_s != 'null'
+      %p= hero.bio.html_safe
+    %p= hero.auto_bio.html_safe
 
 .row
   .span16.vote
