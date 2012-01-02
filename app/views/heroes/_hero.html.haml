@@ -6,7 +6,7 @@
     %h1= hero.login
     .language.rank-block
       - if hero.location.present?
-        %span.descriptor= link_to(hero.location, "https://github.com/search?type=Users&language=&q=location%3A#{hero.location.gsub(/\s/, '%2B')}&repo=&langOverride=&x=0&y=0&start_value=1", :target => '_blank')
+        %span.descriptor= link_to(hero.location, leaderboard_path(:location => hero.location), :target => '_blank')
 
 .row
   .span16.bio
