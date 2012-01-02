@@ -1,6 +1,5 @@
 .row
-  - if current_hero.blank?
-    %h4 Say thanks and vote for #{hero.login}!
+  %h4 Say thanks and vote for #{hero.login} (..and don't forget to tweet too)!
 
   .span4
     %a{:href => hero.html_url, :title => hero.name, :target => '_blank'}
