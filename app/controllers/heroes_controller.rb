@@ -2,7 +2,6 @@ class HeroesController < ApplicationController
   before_filter :authenticate_hero!, :only => [:vote]
 
   def show
-    @hide_footer = true
     @hero = Hero.find_by_login(params[:id])
   end
 
