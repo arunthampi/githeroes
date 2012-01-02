@@ -5,7 +5,8 @@
   .span12
     %h1= hero.login
     .language.rank-block
-      %span.descriptor= link_to(hero.location, "https://github.com/search?type=Users&language=&q=location%3A#{hero.location.gsub(/\s/, '%2B')}&repo=&langOverride=&x=0&y=0&start_value=1", :target => '_blank')
+      - if hero.location.present?
+        %span.descriptor= link_to(hero.location, "https://github.com/search?type=Users&language=&q=location%3A#{hero.location.gsub(/\s/, '%2B')}&repo=&langOverride=&x=0&y=0&start_value=1", :target => '_blank')
 
 .row
   .span16.bio
