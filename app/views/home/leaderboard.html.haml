@@ -27,7 +27,7 @@
           - @heroes.each do |hero|
             %tr
               %td= hero.rank
-              %td= "<img src='#{hero.avatar_url}' width='20'/> <a href='#{hero.html_url}' title='#{hero.name}'>#{hero.login}</a>".html_safe
+              %td= "<img src='#{hero.avatar_url}' width='20'/> <a href='#{short_hero_path(h)}' title='#{hero.name}'>#{hero.login}</a>".html_safe
               - if (location = hero.location).present?
                 %td= link_to(location, _search_url.present? ? _search_url : leaderboard_path(:location => location))
               - else
