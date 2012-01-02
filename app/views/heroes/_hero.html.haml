@@ -1,6 +1,6 @@
 .row
   .span4
-    %a{:href => hero.html_url, :title => hero.name}
+    %a{:href => hero.html_url, :title => hero.name, :target => '_blank'}
       = image_tag(hero.avatar_url, :alt => hero.login, :class => 'hero-shot')
   .span12
     %h1= hero.login
