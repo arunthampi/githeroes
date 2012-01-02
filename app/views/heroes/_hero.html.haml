@@ -19,7 +19,4 @@
       %a{:href => '/heroes/auth/github', :class => 'btn success large primary popup', 'data-height' => '400', 'data-width' => '600'}
         Login with GitHub to Vote!
     - else
-      - if current_hero.has_voted_for?(@hero)
-        = render :partial => 'successful_vote', :locals => { :hero => @hero }
-      - else
-        = button_to 'Vote Now!', vote_hero_path(@hero), :class => 'btn success large primary', :remote => true
+      = render :partial => 'vote_buttons', :locals => { :hero => @hero }

@@ -1,0 +1,7 @@
+- if current_hero.has_voted_for?(@hero)
+  = render :partial => 'successful_vote', :locals => { :hero => @hero }
+- elsif current_hero == @hero
+  %p
+    Unfortunately, you can't vote for yourself =(
+- else
+  = button_to 'Vote Now!', vote_hero_path(@hero), :class => 'btn success large primary', :remote => true
