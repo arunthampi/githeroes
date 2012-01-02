@@ -1,2 +1,4 @@
 $('.hero-container').removeClass('loading');
 $('.hero').html("<%= escape_javascript(render(:partial => 'hero', :locals => { :hero => @hero }))-%>");
+$('.header .span4').html("<%= escape_javascript(render(:partial => 'tweet_button', :locals => { :hero => @hero })) -%>");
+$.getScript("//platform.twitter.com/widgets.js");
