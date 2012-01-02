@@ -68,7 +68,7 @@ class Hero < ActiveRecord::Base
   def self.from(hero_params)
     Hero.new(
               :login => hero_params['login'],
-              :email => hero_params['email'],
+              :email => hero_params['email'] || "user-#{Devise.friendly_token[0,20]}@githero.es",
               :company => hero_params['company'],
               :location => hero_params['location'],
               :hireable => hero_params['hireable'] == 'true',

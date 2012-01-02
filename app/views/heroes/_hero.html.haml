@@ -5,11 +5,8 @@
   .span12
     %h1= hero.login
     .language.rank-block
-      %span.descriptor= "Ruby"
+      %span.descriptor= "Rank"
       %span.rank= "#1024"
-    .global.rank-block
-      %span.descriptor= "Global"
-      %span.rank= "#10242401"
 
 .row
   .span16.bio
@@ -24,7 +21,6 @@
         Login with GitHub to Vote!
     - else
       - if current_hero.has_voted_for?(@hero)
-        %p.cast-vote
-          Your vote for #{@hero.login} has been cast!
+        = render :partial => 'successful_vote', :locals => { :hero => @hero }
       - else
         = button_to 'Vote Now!', vote_hero_path(@hero), :class => 'btn success large primary', :remote => true
