@@ -42,6 +42,10 @@ class Hero < ActiveRecord::Base
     Vote.create(:votee_id => hero.id, :voter_id => self.id)
   end
 
+  def has_voted_for?(hero)
+    Vote.where(:votee_id => hero.id, :voter_id => self.id).count > 0
+  end
+
   def self.find_for_github_oauth(access_token, signed_in_resource = nil)
     data = access_token['extra']['raw_info']
 
