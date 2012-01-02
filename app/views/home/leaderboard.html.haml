@@ -12,10 +12,12 @@
           %tr
             %th= "#"
             %th= "Hero"
+            %th= "Location"
             %th= "Votes Received"
         %tbody
           - @heroes.each do |hero|
             %tr
               %td= hero.rank
               %td= "<img src='#{hero.avatar_url}' width='20'/> <a href='#{hero.html_url}' title='#{hero.name}'>#{hero.login}</a>".html_safe
+              %td= hero.location
               %td= hero.votes_received
