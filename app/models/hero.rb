@@ -1,6 +1,6 @@
 class Hero < ActiveRecord::Base
-  validates_uniqueness_of :login, :email
-  validates_presence_of   :login, :email
+  validates_uniqueness_of :login
+  validates_presence_of   :login
 
   has_many  :access_tokens
 
@@ -66,9 +66,15 @@ class Hero < ActiveRecord::Base
   end
 
   def self.from(hero_params)
+    email = hero_params['email']
+
+    if email.blank? || email == 'null'
+      email = "user-#{Devise.friendly_token[0,20]}@githero.es"
+    end
+
     Hero.new(
               :login => hero_params['login'],
-              :email => hero_params['email'] || "user-#{Devise.friendly_token[0,20]}@githero.es",
+              :email => email,
               :company => hero_params['company'],
               :location => hero_params['location'],
               :hireable => hero_params['hireable'] == 'true',
