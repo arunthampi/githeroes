@@ -3,12 +3,19 @@ class HeroesController < ApplicationController
 
   def show
     @hero = Hero.find_by_login(params[:id])
+    if @hero.present?
+      @hero.location = nil if @hero.location == 'null'
+      @hero.blog = nil if @hero.blog == 'null'
+    end
   end
 
   def create
     hero_params = params[:hero]
     if (@hero = Hero.find_by_login(hero_params[:login])).blank?
       @hero = Hero.from(hero_params)
+      @hero.location = nil if @hero.location == 'null'
+      @hero.blog = nil if @hero.blog == 'null'
+
       @hero.save
     end
   end
