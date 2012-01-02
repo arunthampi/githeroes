@@ -2,7 +2,7 @@
   :coffeescript
     if window.opener
       window.close()
-      window.opener.heroes_controller.refreshSession()
+      window.opener.location.reload(true)
 
 %section#home-index
   .row#main-row
