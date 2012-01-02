@@ -38,6 +38,10 @@ class Hero < ActiveRecord::Base
     self.access_tokens.find_by_provider(provider)
   end
 
+  def vote_for(hero)
+    Vote.create(:votee_id => hero.id, :voter_id => self.id)
+  end
+
   def self.find_for_github_oauth(access_token, signed_in_resource = nil)
     data = access_token['extra']['raw_info']
 
