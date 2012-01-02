@@ -12,6 +12,17 @@ describe Vote do
     it { should validate_presence_of :voter_id }
     it { should validate_presence_of :votee_id }
     it { should validate_uniqueness_of(:voter_id).scoped_to(:votee_id) }
+
+    describe "Hero should not be able to vote for himself" do
+      let!(:hero) { Factory(:hero) }
+
+      it "should not create a vote if a hero is voting for himself" do
+        v = Vote.create(:votee_id => hero.id, :voter_id => hero.id)
+        v.valid?.should be_false
+
+        v.errors.get(:votee_id).should == ["You can't vote for yourself, unfortunately"]
+      end
+    end
   end
 
   describe "Callbacks" do

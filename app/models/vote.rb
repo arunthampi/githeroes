@@ -5,12 +5,10 @@ class Vote < ActiveRecord::Base
   validates_presence_of   :voter_id, :votee_id
   validates_uniqueness_of :voter_id,  :scope => :votee_id
 
-  # after_create  :increment_votes_received_counter
+  validate :check_if_hero_votes_for_himself
 
-  protected
-  # def increment_votes_received_counter
-  #   puts "Increment Votes Received Counter"
-  #   Hero.increment_counter(:votes_received, self.votee_id)
-  # end
+  def check_if_hero_votes_for_himself
+    errors.add(:votee_id, "You can't vote for yourself, unfortunately") if votee_id == voter_id
+  end
 
 end
