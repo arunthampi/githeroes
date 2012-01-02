@@ -23,4 +23,8 @@
       %a{:href => '/heroes/auth/github', :class => 'btn success large primary popup', 'data-height' => '400', 'data-width' => '600'}
         Login with GitHub to Vote!
     - else
-      = button_to 'Vote Now!', vote_hero_path(@hero), :class => 'btn success large primary', :remote => true
+      - if current_hero.has_voted_for?(@hero)
+        %p.cast-vote
+          Your vote for #{@hero.login} has been cast!
+      - else
+        = button_to 'Vote Now!', vote_hero_path(@hero), :class => 'btn success large primary', :remote => true
