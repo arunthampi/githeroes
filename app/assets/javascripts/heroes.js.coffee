@@ -31,6 +31,9 @@ window.HeroesController = class HeroesController
         format: 'script',
         data: { 'hero' : data }
       })
+    else
+      $('.hero-container').removeClass('loading')
+      $('.hero').html("<p style='font-size: 24px; line-height: 30px;'>Unfortunately, we can't find this hero on GitHub. Are you sure you have the username right?</p>")
 
   initEventHandlers: ->
     $('a.popup').live 'click', (e) =>
