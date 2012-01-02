@@ -4,7 +4,7 @@ class Hero < ActiveRecord::Base
 
   has_many  :access_tokens
 
-  devise :database_authenticatable, :rememberable, :trackable, :validatable, :omniauthable
+  devise :database_authenticatable, :rememberable, :trackable, :omniauthable
 
   attr_accessible :login, :email, :company, :location, :hireable, :blog, :following, :followers,
                   :public_repos, :public_gists, :bio, :name, :avatar_url, :html_url, :joined_github_at,
