@@ -9,6 +9,7 @@ class Hero < ActiveRecord::Base
   attr_accessible :login, :email, :company, :location, :hireable, :blog, :following, :followers,
                   :public_repos, :public_gists, :bio, :name, :avatar_url, :html_url, :joined_github_at,
                   :gravatar_id, :following, :password
+  attr_readonly   :votes_received
 
   def to_param
     self.login
@@ -49,7 +50,7 @@ class Hero < ActiveRecord::Base
       hero
     else # Create a user with a stub password.
       hero = Hero.from(data)
-      hero.save!
+      hero.save
 
       hero.create_access_token_from(access_token)
       hero

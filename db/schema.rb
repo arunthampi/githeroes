@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120101052426) do
+ActiveRecord::Schema.define(:version => 20120102014846) do
 
   create_table "access_tokens", :force => true do |t|
     t.string   "provider",   :null => false
@@ -53,6 +53,19 @@ ActiveRecord::Schema.define(:version => 20120101052426) do
     t.datetime "joined_github_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "votes_received",                        :default => 0
   end
+
+  add_index "heros", ["votes_received"], :name => "desc_votes_recvd_idx"
+
+  create_table "votes", :force => true do |t|
+    t.integer  "voter_id"
+    t.integer  "votee_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "votes", ["votee_id"], :name => "index_votes_on_votee_id"
+  add_index "votes", ["voter_id"], :name => "index_votes_on_voter_id"
 
 end
