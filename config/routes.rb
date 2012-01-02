@@ -10,6 +10,7 @@ Githeroes::Application.routes.draw do
   end
 
   match '/h/:id', :to => 'heroes#show', :as => :short_hero
+  match '/leaderboard', :to => 'home#leaderboard', :as => 'leaderboard'
 
   root :to => 'home#index'
 end

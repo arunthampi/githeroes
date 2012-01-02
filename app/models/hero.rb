@@ -88,6 +88,10 @@ class Hero < ActiveRecord::Base
             )
   end
 
+  def self.leaderboard
+    Hero.select("id, login, name, votes_received, avatar_url, html_url, rank() over(order by votes_received DESC)").limit(20)
+  end
+
   def create_access_token_from(access_token)
     self.access_tokens.create(:token => access_token['credentials']['token'],
                               :provider => access_token['provider'],

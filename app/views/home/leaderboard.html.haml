@@ -1,0 +1,21 @@
+%section#home-leaderboard
+  .row
+    .span16
+      .header
+        %a{:href => '/', :title => "githero.es"}
+          = image_tag 'githeroes-leaderboard.png', :width => '480px'
+
+  .row
+    .span16
+      %table{:class => 'zebra-striped', :id => 'leaderboard'}
+        %thead
+          %tr
+            %th= "#"
+            %th= "Hero"
+            %th= "Votes Received"
+        %tbody
+          - @heroes.each do |hero|
+            %tr
+              %td= hero.rank
+              %td= "<img src='#{hero.avatar_url}' width='20'/> <a href='#{hero.html_url}' title='#{hero.name}'>#{hero.login}</a>".html_safe
+              %td= hero.votes_received
