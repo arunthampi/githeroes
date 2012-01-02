@@ -7,6 +7,12 @@
 
   .row
     .span16
+      - if params[:location].present?
+        %h2.find-others
+          Find other Git Heroes in
+          %a{:href => "https://github.com/search?type=Users&language=&q=location%3A#{params[:location].gsub(/\s/, '%2B')}&repo=&langOverride=&x=0&y=0&start_value=1"}
+            = params[:location]
+
       %table{:class => 'zebra-striped', :id => 'leaderboard'}
         %thead
           %tr
@@ -19,5 +25,9 @@
             %tr
               %td= hero.rank
               %td= "<img src='#{hero.avatar_url}' width='20'/> <a href='#{hero.html_url}' title='#{hero.name}'>#{hero.login}</a>".html_safe
-              %td= hero.location
+              - if (location = hero.location).present?
+                %td= link_to(location, leaderboard_path(:location => location))
+              - else
+                %td= ""
+
               %td= hero.votes_received

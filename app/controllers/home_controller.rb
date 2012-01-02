@@ -5,7 +5,11 @@ class HomeController < ApplicationController
   end
 
   def leaderboard
-    @heroes = Hero.leaderboard
+    if params[:location].present?
+      @heroes = Hero.leaderboard_by_location(params[:location])
+    else
+      @heroes = Hero.leaderboard
+    end
   end
 
 end
