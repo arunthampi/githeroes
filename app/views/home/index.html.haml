@@ -1,3 +1,9 @@
+- content_for :head_javascripts do
+  :coffeescript
+    if window.opener
+      window.close()
+      window.opener.heroes_controller.refreshSession()
+
 %section#home-index
   .row#main-row
     .span16#header

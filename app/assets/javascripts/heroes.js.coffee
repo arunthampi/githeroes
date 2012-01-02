@@ -5,6 +5,7 @@
 window.HeroesController = class HeroesController
   constructor: (@heroName, @heroPresent) ->
     @fetchHero() unless @heroPresent
+    @initEventHandlers()
 
   fetchHero: ->
     $.ajax({
@@ -13,6 +14,12 @@ window.HeroesController = class HeroesController
       dataType: 'jsonp',
       jsonpCallback: 'window.heroes_controller.saveHero'
     })
+
+  popupCenter: (url, width, height, name) =>
+    left = (screen.width / 2) - (width / 2)
+    top  = (screen.height / 2) - (height / 2)
+
+    window.open(url, name, "menubar=no,toolbar=no,status=no,width=#{width},height=#{height},toolbar=no,left=#{left},top=#{top}")
 
   saveHero: (response) ->
     data = response.data
@@ -25,3 +32,11 @@ window.HeroesController = class HeroesController
         data: { 'hero' : data }
       })
 
+  initEventHandlers: ->
+    $('a.popup').live 'click', (e) =>
+      @popupCenter($(e.currentTarget).attr('href'), $(e.currentTarget).attr('data-width') || 600, $(e.currentTarget).attr('data-height') || 400, 'authPopup')
+      e.stopPropagation()
+      false
+
+  refreshSession: ->
+    console.log("Refreshed Mofo")
