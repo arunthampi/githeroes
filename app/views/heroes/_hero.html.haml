@@ -19,5 +19,9 @@
 
 .row
   .span16.vote
-    %a{:href => '/heroes/auth/github', :class => 'btn success large primary popup', 'data-height' => '400', 'data-width' => '600'}
-      Login with GitHub to Vote!
+    - unless current_hero.present?
+      %a{:href => '/heroes/auth/github', :class => 'btn success large primary popup', 'data-height' => '400', 'data-width' => '600'}
+        Login with GitHub to Vote!
+    - else
+      %a{:class => 'btn success large primary', :id => 'vote', :href => '#'}
+        Vote Now!
