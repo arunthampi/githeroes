@@ -22,11 +22,13 @@ class Hero < ActiveRecord::Base
     EOF
 
     if self.location.present? && self.blog.present?
-      bio += "<p>#{self.name} is from #{self.location} and blogs at <a href='#{self.blog}'>#{self.blog}</a>.</p>"
+      blog_url = "http://#{self.blog}" if self.blog !~ /http:\/\//
+      bio += "<p>#{self.name} is from #{self.location} and blogs at <a href='#{blog_url}'>#{blog_url}</a>.</p>"
     elsif self.location.present?
       bio += "<p>#{self.name} is from #{self.location}.</p>"
     elsif self.blog.present?
-      bio += "<p>#{self.name} blogs at <a href='#{self.blog}'>#{self.blog}</a>.</p>"
+      blog_url = "http://#{self.blog}" if self.blog !~ /http:\/\//
+      bio += "<p>#{self.name} blogs at <a href='#{blog_url}'>#{blog_url}</a>.</p>"
     end
 
 

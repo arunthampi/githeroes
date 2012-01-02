@@ -6,4 +6,8 @@ module HeroesHelper
       "I'm using @githeroes to nominate my personal GitHub hero!"
     end
   end
+
+  def blog_url(url)
+    "http://#{url}" if url !~ /http:\/\//
+  end
 end
