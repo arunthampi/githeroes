@@ -32,3 +32,28 @@
     #fb-root
 
     = render :partial => 'shared/javascripts'
+
+  :javascript
+    $('#nominate-hero-button').live('click', function() {
+      var nominee = $('#nominate-hero-text-field').val();
+      console.log("Nominee " + nominee);
+
+      if(nominee.length > 0) {
+        window.location = "/h/" + nominee;
+      }
+
+      return false;
+    });
+
+
+#nominate-hero-modal.modal{:style => "display: none;"}
+  .modal-header
+    %a{:href => "#", :class => "close"}
+      x
+    %h3
+      Nominate your Git Hero
+  .modal-body
+    %p#nomination-container
+      %input{:class => "xlarge", :id => "nominate-hero-text-field", :name => "xlInput", :size => "50", :type => "text", :placeholder => "Your hero's GitHub username"}
+      %a{:href => '#', :class => 'btn success', :id => 'nominate-hero-button'}
+        Nominate

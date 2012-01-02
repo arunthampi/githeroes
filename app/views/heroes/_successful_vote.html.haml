@@ -1,4 +1,8 @@
 .cast-vote
   %p
     Your vote for #{hero.login} has been cast.
-  = link_to 'View The Leaderboard', '/leaderboard', :class => 'btn large success'
+  = link_to 'View The Leaderboard', '/leaderboard', :class => 'btn success'
+  %p{:style => "padding-top: 20px;"}= "...Or Nominate Another Hero of yours"
+
+  %a{:class => 'btn success', :id => 'nominate-hero', 'data-controls-modal' => "nominate-hero-modal", 'data-backdrop' => 'static', :href => '#'}
+    Nominate another Hero!

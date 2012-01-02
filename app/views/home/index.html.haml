@@ -15,6 +15,5 @@
         = render :partial => 'heroes/list', :locals => { :heroes => @heroes }
 
       .nominate
-        %a{:class => 'btn success large', :id => 'preview-muxx-reel', :href => '#'}
+        %a{:class => 'btn success large', :id => 'nominate-hero', 'data-controls-modal' => "nominate-hero-modal", 'data-backdrop' => 'static', :href => '#'}
           Nominate your Own Hero!
-
