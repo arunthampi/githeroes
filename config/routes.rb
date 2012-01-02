@@ -3,7 +3,11 @@ Githeroes::Application.routes.draw do
     get '/heroes/auth/:provider' => 'heroes/omniauth_callbacks#passthru'
   end
 
-  resources :heroes, :only => [:create, :show]
+  resources :heroes, :only => [:create, :show] do
+    member do
+      post :vote
+    end
+  end
 
   match '/h/:id', :to => 'heroes#show', :as => :short_hero
 
