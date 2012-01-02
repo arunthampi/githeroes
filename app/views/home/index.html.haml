@@ -1,6 +1,6 @@
 - content_for :head_javascripts do
   :coffeescript
-    if window.opener
+    if window.opener && window.location.href.match(/ref=oauth/) != null
       window.close()
       window.opener.location.reload(true)
 
