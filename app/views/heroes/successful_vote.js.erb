@@ -1,5 +1,5 @@
 $('.vote').html("<%= escape_javascript(render(:partial => 'successful_vote', :locals => { :hero => @votee })) -%>");
-<%- _rank = @votee.rank -%>
+<%- _rank = @votee.global_rank -%>
 <%- if _rank.present? -%>
-  $('.global-rank .rank').html("<%= "##{@votee.rank}"-%>");
+  $('.global-rank .rank').html("<%= "##{_rank}"-%>");
 <%- end -%>

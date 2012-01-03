@@ -9,7 +9,7 @@
     .language.rank-block
       - if hero.location.present?
         %span.descriptor= link_to(hero.location, leaderboard_path(:location => hero.location), :target => '_blank')
-    - if (_rank = hero.rank).present?
+    - if (_rank = hero.global_rank).present?
       .global-rank.rank-block
         %span.descriptor
           Rank

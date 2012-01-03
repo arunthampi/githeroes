@@ -40,7 +40,7 @@ class Hero < ActiveRecord::Base
     self.access_tokens.find_by_provider(provider)
   end
 
-  def rank
+  def global_rank
     result = self.class.connection.execute("SELECT pos from (SELECT id, rank() over(ORDER BY votes_received DESC) AS pos FROM heros) AS ss WHERE id = #{self.id}")
     (result.first || {})['pos'].to_i
   end
