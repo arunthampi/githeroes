@@ -33,7 +33,8 @@ window.HeroesController = class HeroesController
       })
     else
       $('.hero-container').removeClass('loading')
-      $('.hero').html("<p style='font-size: 24px; line-height: 32px;'>Unfortunately, we can't find this hero on GitHub. Are you sure you have the username right?</p><p style='text-align: center; margin-top: 30px;'><a class='btn success large' data-backdrop='static' data-controls-modal='nominate-hero-modal' href='#' id='nominate-hero'>Nominate Another Hero!</a>")
+      $('.hero').html("<p style='font-size: 24px; line-height: 32px;'>Unfortunately, we can't find this hero on GitHub. Are you sure you have the username right?</p><div id='nomination-container'><input class='xlarge' id='nominate-hero-text-field' name='xlInput' placeholder=\"Your hero's GitHub username\" size='50' type='text'><a class='btn success' href='#' id='nominate-hero-button'>Nominate</a></div>")
+      $('#nominate-hero-text-field').focus()
 
   initEventHandlers: ->
     $('a.popup').live 'click', (e) =>

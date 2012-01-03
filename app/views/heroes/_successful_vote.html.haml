@@ -4,4 +4,7 @@
   = link_to 'View The Leaderboard', '/leaderboard', :class => 'btn success'
   %p{:style => "padding-top: 20px;"}= "...Or Nominate Another Hero of yours"
 
-  = link_to 'Nominate Another Hero!', '#', :class => 'btn success', :id => 'nominate-hero', 'data-controls-modal' => "nominate-hero-modal", 'data-backdrop' => 'static'
+  #nomination-container
+    %input{:class => "xlarge", :id => "nominate-hero-text-field", :name => "xlInput", :size => "50", :type => "text", :placeholder => "Your hero's GitHub username"}
+    %a{:href => '#', :class => 'btn success', :id => 'nominate-hero-button'}
+      Nominate
