@@ -9,6 +9,11 @@
     .language.rank-block
       - if hero.location.present?
         %span.descriptor= link_to(hero.location, leaderboard_path(:location => hero.location), :target => '_blank')
+    - if (_rank = hero.rank).present?
+      .global-rank.rank-block
+        %span.descriptor
+          Rank
+        %span.rank= "##{_rank}"
 
 .row
   .span16.bio

@@ -40,6 +40,11 @@ class Hero < ActiveRecord::Base
     self.access_tokens.find_by_provider(provider)
   end
 
+  def rank
+    result = self.class.connection.execute("SELECT pos from (SELECT id, rank() over(ORDER BY votes_received DESC) AS pos FROM heros) AS ss WHERE id = #{self.id}")
+    (result.first || {})['pos'].to_i
+  end
+
   def vote_for(hero)
     Vote.create(:votee_id => hero.id, :voter_id => self.id)
   end

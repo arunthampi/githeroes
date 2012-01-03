@@ -1,8 +1,6 @@
 .cast-vote
   %p
-    Your vote for #{hero.login} has been cast.
-  = link_to 'View The Leaderboard', '/leaderboard', :class => 'btn success'
-  %p{:style => "padding-top: 20px;"}= "...Or Nominate Another Hero of yours"
+    Nominate another Hero of yours
 
   #nomination-container
     %input{:class => "xlarge", :id => "nominate-hero-text-field", :name => "xlInput", :size => "50", :type => "text", :placeholder => "Your hero's GitHub username"}
