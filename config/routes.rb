@@ -9,8 +9,9 @@ Githeroes::Application.routes.draw do
     end
   end
 
-  match '/h/:id', :to => 'heroes#show', :as => :short_hero
   match '/leaderboard', :to => 'home#leaderboard', :as => 'leaderboard'
+  match '/:id', :to => 'heroes#show', :as => :short_hero
+  match '/h/:id' => redirect("/%{id}")
 
   root :to => 'home#index'
 end
