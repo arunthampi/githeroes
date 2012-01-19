@@ -102,11 +102,11 @@ class Hero < ActiveRecord::Base
   end
 
   def self.leaderboard
-    Hero.select("id, login, name, location, votes_received, avatar_url, html_url, rank() over(order by votes_received DESC)").limit(20)
+    Hero.select("id, login, name, location, votes_received, avatar_url, html_url, rank() OVER(ORDER BY votes_received DESC)").limit(20)
   end
 
   def self.leaderboard_by_location(location)
-    Hero.select("id, login, name, location, votes_received, avatar_url, html_url, rank() over(order by votes_received DESC)").where("location = ?", location).limit(20)
+    Hero.select("id, login, name, location, votes_received, avatar_url, html_url, rank() OVER(PARTITION BY location ORDER BY votes_received DESC)").where("location = ?", location).limit(20)
   end
 
   def create_access_token_from(access_token)
