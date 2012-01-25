@@ -45,6 +45,11 @@ class Hero < ActiveRecord::Base
     (result.first || {})['pos'].to_i
   end
 
+  def local_rank
+    result = self.class.connection.execute("SELECT pos from (SELECT id, location, rank() over(PARTITION BY location ORDER BY votes_received DESC) AS pos FROM heros) AS ss WHERE id = #{self.id} AND location = '#{self.location.to_s}'")
+    (result.first || {})['pos'].to_i
+  end
+
   def vote_for(hero)
     Vote.create(:votee_id => hero.id, :voter_id => self.id)
   end

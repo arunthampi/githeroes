@@ -1,5 +1,5 @@
 .row
-  %h4 Say thanks and vote for #{hero.login}...and tweet too!
+  %h4 Vote for #{hero.login} and tweet your thanks!
 
   .span4
     %a{:href => hero.html_url, :title => hero.name, :target => '_blank'}
@@ -8,12 +8,14 @@
     %h1= hero.login
     .language.rank-block
       - if hero.location.present?
+        - if (_local_rank = hero.local_rank).present?
+          %span.rank= "##{_local_rank} in"
         %span.descriptor= link_to(hero.location, leaderboard_path(:location => hero.location), :target => '_blank')
     - if (_rank = hero.global_rank).present?
       .global-rank.rank-block
-        %span.descriptor
-          Rank
         %span.rank= "##{_rank}"
+        %span.descriptor= link_to('Globally', leaderboard_path)
+
 
 .row
   .span16.bio
