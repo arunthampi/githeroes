@@ -7,6 +7,10 @@
 # Ignore bundler config
 /.bundle
 
+# RubyMine excludes
+.idea
+*.ids
+
 # Ignore config/database.yml
 config/database.yml
 
