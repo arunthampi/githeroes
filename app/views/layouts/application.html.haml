@@ -38,8 +38,17 @@
 
   :javascript
     $('#nominate-hero-button').live('click', function() {
-      var nominee = $('#nominate-hero-text-field').val();
-      if(nominee.length > 0) { window.location = "/h/" + nominee; }
+      var nominee = $('#nominate-hero-text-field').val().replace(/ /, '');
+      if(nominee.length > 0) {
+
+        nominee = nominee.replace(/\//g,"%2F");
+        nominee = nominee.replace(/\?/g,"%3F");
+        nominee = nominee.replace(/=/g,"%3D");
+        nominee = nominee.replace(/&/g,"%26");
+        nominee = nominee.replace(/@/g,"%40");
+
+        window.location = "/h/" + escape(nominee);
+      }
       return false;
     });
 

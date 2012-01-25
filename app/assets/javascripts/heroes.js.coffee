@@ -43,4 +43,3 @@ window.HeroesController = class HeroesController
       false
 
   refreshSession: ->
-    console.log("Refreshed Mofo")
