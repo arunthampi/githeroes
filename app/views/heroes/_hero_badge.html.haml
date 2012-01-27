@@ -2,6 +2,13 @@
   <style type="text/css">
     #githeroes-badge {
       font-size: 0.8em;
+      border: 3px solid #666;
+      border-radius: 6px;
+      float: left;
+      padding: 8px;
+      -webkit-box-shadow: 0 0 15px #9c9c9c;
+         -moz-box-shadow: 0 0 15px #9c9c9c;
+              box-shadow: 0 0 15px #9c9c9c;
     }
 
     #githeroes-badge #githeroes-main-container {
@@ -23,7 +30,7 @@
 
     #githeroes-badge #githeroes-main-container #githeroes-info {
       float: left;
-      padding-left: 8px;
+      padding-left: 12px;
     }
 
     #githeroes-badge #githeroes-main-container #githeroes-image img {
@@ -37,10 +44,22 @@
       font-size: 1.2em;
     }
 
-    #githeroes-badge #githeroes-info p.githero {
+    #githeroes-badge #githeroes-info .githero {
       margin: 0;
       margin-top: 6px;
       font-family: "Helvetica Neue", "Helvetica";
+      width: 100%;
+      float: left;
+    }
+
+    #githeroes-badge #githeroes-info .githero .text {
+      float: left;
+      margin-right: 4px;
+      margin-top: 2px;
+    }
+
+    #githeroes-badge #githeroes-info .githero .img {
+      float: left;
     }
 
     #githeroes-badge #githeroes-info h1 a{
@@ -55,7 +74,8 @@
     #githeroes-badge #githeroes-footer {
       font-family: "Helvetica Neue", "Helvetica";
       font-size: 0.75em;
-      margin-top: 3em;
+      margin-top: 2.4em;
+      padding-top: 4px;
       width: 100%;
       text-align: right;
       float: left;
@@ -87,14 +107,17 @@
 #githeroes-badge
   #githeroes-main-container
     #githeroes-image
-      %a{:href => hero.html_url, :title => hero.name, :target => '_blank'}
+      %a{:href => "http://githero.es/#{hero.login}", :title => hero.name, :target => '_blank'}
         = image_tag(hero.avatar_url, :alt => hero.login, :class => 'hero-shot')
     #githeroes-info
       %h1
         %a{:href => "http://githero.es/#{hero.login}", :title => hero.name, :target => '_blank'}
           = hero.login
-      %p.githero
-        is a GitHero
+      .githero
+        .text
+          is a
+        .img
+          <img src="http://assets.githero.es/githero.png" alt="GitHero" height="20"/>
   - if hero.location.present?
     - _local_rank = hero.local_rank
     #githeroes-local.githeroes-rank-block
