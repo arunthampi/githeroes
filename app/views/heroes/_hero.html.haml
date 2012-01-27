@@ -22,15 +22,6 @@
       %p= hero.bio.html_safe
     %p= hero.auto_bio.html_safe
 
-    %h5 Are you #{hero.login}?
-    %p
-      Get your own GitHeroes badge (with your local and global rank) to use on your own blog/website!
-      :plain
-        <form>
-          <textarea class="copy-code" rows="2">&lt;script type="text/javascript" src="http://githero.es/#{hero.login}.js"&gt;&lt;/script&gt;</textarea>
-        </form>
-    %p= "Here's a #{link_to('preview', badge_hero_path(hero))} of what it looks like.".html_safe
-
 .row
   .span16.vote
     - unless current_hero.present?
@@ -39,5 +30,13 @@
     - else
       = render :partial => 'vote_buttons', :locals => { :hero => @hero }
 
-.row
-  .span16.badge
+.row{:style => "margin-top: 20px;"}
+  .span16.bio{:style => "border-top: 1px solid #ccc;"}
+    %h5 Are you #{hero.login}?
+    %p
+      Get your own GitHeroes badge (with your local and global rank) to use on your own blog/website!
+      :plain
+        <form>
+          <textarea class="copy-code" rows="1" style="width: 100%;">&lt;script type="text/javascript" src="http://githero.es/#{hero.login}.js"&gt;&lt;/script&gt;</textarea>
+        </form>
+    %p= "Here's a #{link_to('preview', badge_hero_path(hero))} of what it looks like.".html_safe
