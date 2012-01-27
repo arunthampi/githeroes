@@ -111,7 +111,7 @@
   #githeroes-main-container
     #githeroes-image
       %a{:href => "http://githero.es/#{hero.login}", :title => hero.name, :target => '_blank'}
-        = image_tag(hero.avatar_url, :alt => hero.login, :class => 'hero-shot')
+        = image_tag(hero.avatar_url, :alt => hero.login)
     #githeroes-info
       %h1
         %a{:href => "http://githero.es/#{hero.login}", :title => hero.name, :target => '_blank'}
