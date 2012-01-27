@@ -1,0 +1,22 @@
+%section#heroes-show
+  .row
+    .span4
+      = render :partial => "hero_badge", :locals => { :hero => @hero }
+    .span12
+      %h2 GitHeroes Badge for #{@hero.login}
+
+      .description{:style => "padding-top: 10px; font-size: 16px;"}
+        You can use this in the sidebar of your blog/website!
+
+      .description{:style => "padding-top: 10px; font-size: 16px;"}
+        :plain
+          <form>
+            <textarea class="copy-code" rows="2">&lt;script type="text/javascript" src="http://githero.es/#{@hero.login}.js"&gt;&lt;/script&gt;</textarea>
+          </form>
+
+      .description{:style => "padding-top: 5px; font-size: 12px;"}
+        = link_to "&larr; back to #{@hero.login}'s profile".html_safe, short_hero_path(@hero)
+
+- content_for :javascripts do
+  %script{:type => "text/javascript"}
+    = "window.heroes_controller = new HeroesController('#{params[:id]}', #{@hero.present?});"

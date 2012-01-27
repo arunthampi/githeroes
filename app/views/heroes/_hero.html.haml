@@ -16,12 +16,20 @@
         %span.rank= "##{_rank}"
         %span.descriptor= link_to('Globally', leaderboard_path)
 
-
 .row
   .span16.bio
     - if hero.bio.present? && hero.bio.to_s != 'null'
       %p= hero.bio.html_safe
     %p= hero.auto_bio.html_safe
+
+    %h5 Are you #{hero.login}?
+    %p
+      Get your own GitHeroes badge (with your local and global rank) to use on your own blog/website!
+      :plain
+        <form>
+          <textarea class="copy-code" rows="2">&lt;script type="text/javascript" src="http://githero.es/#{hero.login}.js"&gt;&lt;/script&gt;</textarea>
+        </form>
+    %p= "Here's a #{link_to('preview', badge_hero_path(hero))} of what it looks like.".html_safe
 
 .row
   .span16.vote
@@ -30,3 +38,6 @@
         Login with GitHub to Vote!
     - else
       = render :partial => 'vote_buttons', :locals => { :hero => @hero }
+
+.row
+  .span16.badge

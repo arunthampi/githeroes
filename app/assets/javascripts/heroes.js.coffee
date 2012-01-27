@@ -37,6 +37,10 @@ window.HeroesController = class HeroesController
       $('#nominate-hero-text-field').focus()
 
   initEventHandlers: ->
+    $('textarea.copy-code').live 'click', (e) =>
+      $(e.currentTarget).focus()
+      $(e.currentTarget).select()
+
     $('a.popup').live 'click', (e) =>
       @popupCenter($(e.currentTarget).attr('href'), $(e.currentTarget).attr('data-width') || 600, $(e.currentTarget).attr('data-height') || 400, 'authPopup')
       e.stopPropagation()

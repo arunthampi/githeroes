@@ -9,6 +9,14 @@ class HeroesController < ApplicationController
     end
   end
 
+  def badge
+    @hero = Hero.find_by_login(params[:id])
+    if @hero.present?
+      @hero.location = nil if @hero.location == 'null'
+      @hero.blog = nil if @hero.blog == 'null'
+    end
+  end
+
   def create
     hero_params = params[:hero]
     if (@hero = Hero.find_by_login(hero_params[:login])).blank?
