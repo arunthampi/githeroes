@@ -1,0 +1,29 @@
+body p{
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 18px;
+  color: #404040;
+}
+
+p.blurb {
+  padding-top: 12px;
+}
+
+#main {
+  min-height: 320px;
+}
+
+#home-index {
+  padding-top: 100px;
+  padding-bottom: 40px;
+}
+
+#home-index #header {
+  text-align: center;
+}
+
+#footer {
+  margin-top: 18px;
+  text-align: center;
+}
