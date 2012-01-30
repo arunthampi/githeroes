@@ -79,7 +79,7 @@ describe Heroes::OmniauthCallbacksController do
 
       it "should redirect to root_path" do
         do_request
-        response.should redirect_to root_path
+        response.should redirect_to root_path(:ref => 'oauth')
       end
     end
 
