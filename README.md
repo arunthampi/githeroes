@@ -19,9 +19,11 @@ You can read more about the windowing and ranking [here](http://dev.anideo.com/2
 
 3. **Setup GitHub keys**: You need to [setup a GitHub OAuth application](https://github.com/account/applications/new) and choose whatever name you like. If you're testing out githero.es locally, set the Main URL to be ```http://localhost:3000``` (assuming you're running on port 3000 of course) and set the callback URL to be ```http://localhost:3000/heroes/auth/github/callback```. For production use, change the host to whatever your production host is but the paths remain the same.
 
-4. **Specs**: There are some specs, which you can run using rspec from the root of the app - ```rspec spec/``` (You need to have setup the test database before you can run specs)
+4. **Setup your gem bundle**: Run ```bundle install``` from the root of the app.
 
-    4.1 **Setting up the test database schema**: After you setup the test database in PostgreSQL, you need to run ```rake db:test:prepare``` for the current database schema to be imported to your test database.
+5. **Specs**: There are some specs, which you can run using rspec from the root of the app - ```rspec spec/``` (You need to have setup the test database before you can run specs)
+
+    5.1 **Setting up the test database schema**: After you setup the test database in PostgreSQL, you need to run ```rake db:test:prepare``` from the root of the app to import the current database schema to your test database.
 
 ## Happy Hacking!
 
