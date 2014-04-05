@@ -11,6 +11,8 @@ I decided to open-source it in the hope that its helpful as a starting point for
 
 You can read more about the windowing and ranking [here](http://dev.anideo.com/2012/01/19/simple-windowing-and-ranking-on-postgres-or-a-behind-the-scenes-look-at-githeroes.html).
 
+[![Hack arunthampi/githeroes on Nitrous.IO](https://d3o0mnbgv6k92a.cloudfront.net/assets/hack-l-v1-3cc067e71372f6045e1949af9d96095b.png)](https://www.nitrous.io/hack_button?source=embed&runtime=nodejs&repo=arunthampi%2Fgitheroes)
+
 ## Setup
 
 1. **Setup PostgreSQL**: Unfortunately githero.es doesn't work with databases other than Postgres. You will have to set it up yourself using [brew](https://github.com/mxcl/homebrew) or a package manager of your choice.
